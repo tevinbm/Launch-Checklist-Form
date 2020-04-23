@@ -11,11 +11,10 @@
             let cargoStatus = document.getElementById("cargoStatus");
             let faultyItems = document.getElementById("faultyItems");
             let launchStatus = document.getElementById("launchStatus");
-            let planetDataDisplay = document.getElementById("planetData");
+            let planetDataDisplay = document.getElementById("planetDataDisplay");
 
             form.addEventListener("submit", (event) => {
                event.preventDefault();
-                  
                if (pilotName.value === '' || copilotInput.value === '' || fuelInput.value === '' || cargoInput.value === '') {
                   alert('Must input all values to Launch');
                } else if (isNaN(Number(fuelInput.value)) || isNaN(Number(cargoInput.value))) {
@@ -39,7 +38,7 @@
                      }
                   
                      
-                     if (Number(fuelInput.value) <= 10000 || (Number(cargoInput.value) >= 1000)) {
+                     if (Number(fuelInput.value) <= 10000 || Number(cargoInput.value) >= 1000) {
                         launchStatus.innerHTML = "Shuttle Not Ready for Launch";
                         launchStatus.style.color = "red";
                      } else {
@@ -47,26 +46,27 @@
                         launchStatus.style.color = "blue";
                      }
                   }
-               });       
+                     
                
                      
    
-            fetch("https.//handlers.education.launchcode.org/static/planets.json").then(function(response) {
-               return (response.json());
-            }) .then((data) => {
-                  let planet = data[Math.floor(Math.random() * data.length)];
+            // fetch("https.//handlers.education.launchcode.org/static/planets.json").then(function (response) {
+            //    return (response.json());
+            // }) .then((data) => {
+            //       let planet = data[Math.floor(Math.random() * data.length)];
             
-                  planetDataDisplay.innerHTML = `
-                  <h2>Mission Destination</h2>
-                  <ol>
-                     <li>Name: ${planet.name}</li>
-                     <li>Diameter: ${planet.diameter}</li>
-                     <li>Star: ${planet.star}</li>
-                     <li>Distance from Earth: ${planet.distance}</li>
-                     <li>Number of Moons: ${planet.mass}</li>
-                  </ol>
-                  <img src="${planet.images}">
-                  `;
-               })
+            //       planetDataDisplay.innerHTML = `
+            //       <h2>Mission Destination</h2>
+            //       <ol>
+            //          <li>Name: ${planet.name}</li>
+            //          <li>Diameter: ${planet.diameter}</li>
+            //          <li>Star: ${planet.star}</li>
+            //          <li>Distance from Earth: ${planet.distance}</li>
+            //          <li>Number of Moons: ${planet.mass}</li>
+            //       </ol>
+            //       <img src="${planet.images}">
+            //       `;
+            //    })
             });
 
+   }); 
