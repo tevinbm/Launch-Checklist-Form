@@ -3,8 +3,8 @@
             let form = document.querySelector('form');
             let pilotName = document.getElementById('pilotName');
             let copilotName = document.querySelector("input[name=copilotName]");
-            let fuelInput = document.quereySelector("input[name=fuelLevel]");
-            let cargoInput = document.quereySelector("input[name=cargoMass]");
+            let fuelInput = document.querySelector("input[name=fuelLevel]");
+            let cargoInput = document.querySelector("input[name=cargoMass]");
             let pilotStatus = document.getElementById("pilotStatus");
             let copilotStatus = document.getElementById("copilotStatus");
             let fuelStatus = document.getElementById("fuelStatus");
@@ -50,23 +50,23 @@
                
                      
    
-            // fetch("https.//handlers.education.launchcode.org/static/planets.json").then(function (response) {
-            //    return (response.json());
-            // }) .then((data) => {
-            //       let planet = data[Math.floor(Math.random() * data.length)];
+            fetch("https.//handlers.education.launchcode.org/static/planets.json").then(function(response) {
+               return (response.json());
+            }) .then((data) => {
+                  let planet = data[Math.floor(Math.random() * data.length)];
             
-            //       planetDataDisplay.innerHTML = `
-            //       <h2>Mission Destination</h2>
-            //       <ol>
-            //          <li>Name: ${planet.name}</li>
-            //          <li>Diameter: ${planet.diameter}</li>
-            //          <li>Star: ${planet.star}</li>
-            //          <li>Distance from Earth: ${planet.distance}</li>
-            //          <li>Number of Moons: ${planet.mass}</li>
-            //       </ol>
-            //       <img src="${planet.images}">
-            //       `;
-            //    })
+                  planetDataDisplay.innerHTML = `
+                  <h2>Mission Destination</h2>
+                  <ol>
+                     <li>Name: ${planet.name}</li>
+                     <li>Diameter: ${planet.diameter}</li>
+                     <li>Star: ${planet.star}</li>
+                     <li>Distance from Earth: ${planet.distance}</li>
+                     <li>Number of Moons: ${planet.mass}</li>
+                  </ol>
+                  <img src="${planet.images}">
+                  `;
+               })
             });
 
    }); 
