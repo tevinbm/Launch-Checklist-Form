@@ -38,24 +38,25 @@
                      }
                   
                      
-                     if (Number(fuelInput.value) <= 10000 || Number(cargoInput.value) >= 1000) {
+                     if (Number(fuelInput.value) <= 10000 || Number(cargoInput.value) < 1000) {
                         launchStatus.innerHTML = "Shuttle Not Ready for Launch";
                         launchStatus.style.color = "red";
                      } else {
-                        launchStatus.innerHTML = "Shuttle Not Ready for Launch";
+                        launchStatus.innerHTML = "Shuttle Ready for Launch";
                         launchStatus.style.color = "blue";
                      }
-                  }
-                     
+                  } 
+                  
                
                      
    
             fetch("https://handlers.education.launchcode.org/static/planets.json").then(function(response) {
                return (response.json());
-            }) .then((data) => {
+            }) 
+               .then((data) => {
                   let planet = data[Math.floor(Math.random() * data.length)];
             
-                  planetDataDisplay.innerHTML = `
+                  missionTarget.innerHTML = `
                   <h2>Mission Destination</h2>
                   <ol>
                      <li>Name: ${planet.name}</li>
