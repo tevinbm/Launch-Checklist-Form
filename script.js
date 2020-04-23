@@ -11,17 +11,17 @@
             let cargoStatus = document.getElementById("cargoStatus");
             let faultyItems = document.getElementById("faultyItems");
             let launchStatus = document.getElementById("launchStatus");
-            let planetDataDisplay = document.getElementById("planetDataDisplay");
+            let planetDataDisplay = document.getElementById("planetData");
 
             form.addEventListener("submit", (event) => {
                event.preventDefault();
-               if (pilotName.value === '' || copilotInput.value === '' || fuelInput.value === '' || cargoInput.value === '') {
+               if (pilotName.value === '' || copilotName.value === '' || fuelInput.value === '' || cargoInput.value === '') {
                   alert('Must input all values to Launch');
                } else if (isNaN(Number(fuelInput.value)) || isNaN(Number(cargoInput.value))) {
                      alert('Fuel and Mass must be numeric.');
                } else {
                      faultyItems.style.visibilty = "visible";
-                     pilotStatus.innerHTML = `Pilot ${pioltName.value} is ready for launch`;
+                     pilotStatus.innerHTML = `Pilot ${pilotName.value} is ready for launch`;
                      copilotStatus.innerHTML = `Co-Pilot ${copilotName.value} is ready for launch`;
                   
                      if (Number(fuelInput.value) <= 10000) {
@@ -50,7 +50,7 @@
                
                      
    
-            fetch("https.//handlers.education.launchcode.org/static/planets.json").then(function(response) {
+            fetch("https://handlers.education.launchcode.org/static/planets.json").then(function(response) {
                return (response.json());
             }) .then((data) => {
                   let planet = data[Math.floor(Math.random() * data.length)];
@@ -62,9 +62,9 @@
                      <li>Diameter: ${planet.diameter}</li>
                      <li>Star: ${planet.star}</li>
                      <li>Distance from Earth: ${planet.distance}</li>
-                     <li>Number of Moons: ${planet.mass}</li>
+                     <li>Number of Moons: ${planet.moons}</li>
                   </ol>
-                  <img src="${planet.images}">
+                  <img src="${planet.image}">
                   `;
                })
             });
