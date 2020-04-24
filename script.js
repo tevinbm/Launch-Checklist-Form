@@ -11,7 +11,7 @@
             let cargoStatus = document.getElementById("cargoStatus");
             let faultyItems = document.getElementById("faultyItems");
             let launchStatus = document.getElementById("launchStatus");
-            let planetDataDisplay = document.getElementById("planetData");
+            
 
             form.addEventListener("submit", (event) => {
                event.preventDefault();
@@ -20,12 +20,13 @@
                } else if (isNaN(Number(fuelInput.value)) || isNaN(Number(cargoInput.value))) {
                      alert('Fuel and Mass must be numeric.');
                } else {
-                     faultyItems.style.visibilty = "visible";
-                     pilotStatus.innerHTML = `Pilot ${pilotName.value} is ready for launch`;
-                     copilotStatus.innerHTML = `Co-Pilot ${copilotName.value} is ready for launch`;
+                  faultyItems.style.visibility = "visible";
+                  pilotStatus.innerHTML = `Pilot ${pilotName.value} is ready for launch`;
+                  copilotStatus.innerHTML = `Co-Pilot ${copilotName.value} is ready for launch`;
                   
                      if (Number(fuelInput.value) <= 10000) {
                         fuelStatus.innerHTML = "Fuel level is too low for launch";
+                  
                      } else {
                         fuelStatus.innerHTML = "Fuel level is ready for launch";
                      }
@@ -38,12 +39,12 @@
                      }
                   
                      
-                     if (Number(fuelInput.value) <= 10000 || Number(cargoInput.value) < 1000) {
+                     if (Number(fuelInput.value) <= 10000 || Number(cargoInput.value) >= 1000) {
                         launchStatus.innerHTML = "Shuttle Not Ready for Launch";
                         launchStatus.style.color = "red";
                      } else {
                         launchStatus.innerHTML = "Shuttle Ready for Launch";
-                        launchStatus.style.color = "blue";
+                        launchStatus.style.color = "green";
                      }
                   } 
                   
